@@ -2,25 +2,36 @@
 {% extends "base.html" %}
 {% from "includes/common_macros.html" import search_box %}
 {% set styles = ('wiki', 'home') %}
-{% set scripts = ('wiki',) %}
-{% set classes = ('home desktop') %}
+{% if waffle('new_home') %}
+  {% set scripts = ('wiki', 'instant') %}
+  {% set classes = ('home desktop instant') %}
+{% else %}
+  {% set scripts = ('wiki',) %}
+  {% set classes = ('home desktop') %}
+{% endif %}
 {% set title = _('Firefox Support Home Page') %}
 {% set hide_header_search = True %}
 {% set active_side_link = 1 %}
 
 {% block content %}
   <div id="featured-wrap">{# Top area, includes "Need Help With FIREFOX?" #}
-    <div id="featured">
-      <h1>{{ _('Need Help With <mark>Firefox?</mark>')|safe }}</h1>
-      <p>{% trans %}
-        You've come to the right place! Start by searching our site below,
-        or browse our list of popular support articles. If you can't find the
-        answer you need, our community of volunteers are ready to help
-        you find a solution.
-      {% endtrans %}</p>
-      {{ search_box(settings, id='support-search') }}
+    {% if waffle('new_home') %}
+      <div id="instant-search">
+        {{ search_box(settings, id='support-search') }}
+      </div>{# /instant-search #}
+    {% else %}
+      <div id="featured">
+        <h1>{{ _('Need Help With <mark>Firefox?</mark>')|safe }}</h1>
+        <p>{% trans %}
+          You've come to the right place! Start by searching our site below,
+          or browse our list of popular support articles. If you can't find the
+          answer you need, our community of volunteers are ready to help
+          you find a solution.
+        {% endtrans %}</p>
+        {{ search_box(settings, id='support-search') }}
+      </div>
     </div>
-  </div>
+  {% endif %}
   <div id="home-content">
     <div id="home-content-quick">
       {{ quick.html|safe }}

@@ -397,6 +397,9 @@ MINIFY_BUNDLES = {
         'users': (
             'js/users.js',
         ),
+        'instant': (
+            'js/instant.js',
+        ),
     },
 }
 

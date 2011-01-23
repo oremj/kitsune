@@ -8,6 +8,11 @@
     z-index: 2;
 }
 
+#instant-search {
+    width: 754px;
+    position: relative;
+}
+
 #featured {
     background: url("../img/nurse.png") no-repeat scroll right top transparent;
     height: 279px;
@@ -31,6 +36,19 @@ body.mobile #featured {
     height: 279px;
 }
 
+body.instant #featured-wrap {
+    background: none;
+}
+
+#instant-search #support-search {
+    width: 480px;
+    margin: .5em auto 0 auto;
+}
+
+#instant-search #support-search input.text {
+    width: 390px;
+}
+
 #featured h1 {
     font-size: 280%;
     font-style: italic;
@@ -38,7 +56,7 @@ body.mobile #featured {
     margin: 0 0 .5em;
 }
 
-#featured h1 mark {
+#featured-wrap h1 mark {
     font-family: MetaBlack, "Trebuchet MS", sans-serif;
     font-style: normal;
     font-weight: bold;
@@ -68,6 +86,29 @@ body.mobile #featured {
     padding-bottom: 0;
 }
 
+body.instant #firefox-help {
+    font-size: 72px;
+    font-family: MetaBlack, "Trebuchet MS", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    width: 700px;
+}
+
+body.instant #home-content ol {
+    clear: left;
+    font-size: 110%:
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+body.instant #home-content ol li {
+    display: block;
+}
+
+body.instant #home-content ol li a {
+    display: block;
+}
 #home-content-quick, #home-content-explore {
     float: left;
     font-size: 14px;

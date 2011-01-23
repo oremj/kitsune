@@ -43,7 +43,8 @@
 <body{% if classes %} class="{{ classes }}"{% endif %}
       data-readonly="{{ settings.READ_ONLY|json }}"
       data-for-os="{{ for_os|json }}"
-      data-for-version="{{ for_version|json }}">
+      data-for-version="{{ for_version|json }}"
+      data-search="{{ url('search') }}">
 
 {% include 'layout/header.html' %}
 
